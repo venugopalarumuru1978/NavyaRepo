@@ -52,3 +52,10 @@ NetWork :-  An inter-connection b/w two / more than two computers to share the i
 What is a Web / Internet?
 		It is a global network. / Networks of Network
 -----------------------------------------
+www = world wide web
+http = hyper text transfer protocal
+ftp = file transfer protocal
+
+
+
+
