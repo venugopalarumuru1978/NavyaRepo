@@ -1,0 +1,38 @@
+Table Tag:- 
+------------
+<table  width="%age"  border="1/0">
+	<tr>
+		<th>Col-Head-1</th>
+		<th>Col-Head-2</th>
+			..............
+			..............
+		<th>Col-Head-n</th>
+	</tr>
+
+	<tr>
+		<td>Col-Val-1</td>
+		<td>Col-Val-2</td>
+			-------------
+			-------------
+		<td>Col-Val-n</td>
+	</tr>
+
+	...................
+	...................
+</table>
+
+tr - table row
+th - table head (col headings)
+td - table data (col value)
+--------------------------
+Anchor Tag:-  This tag is used to link b/w pages. 
+<a href="Page Name">Link Text</a>
+---------------------------
+
+
+
+
+
+
+
+

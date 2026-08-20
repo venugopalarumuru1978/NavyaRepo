@@ -1,0 +1,121 @@
+HTML:- 
+-----
+What is a HTML?  
+It is one of the markup lang which meant for creating and desiging web pages. 
+FULL Form :-  Hyper Text Markup Language
+
+markup languages are not having any programming techniques like variables, input output stmts, control stmts, ....
+these are having set of commands, which are called as tags. 
+
+As per html, tags are two types
+
+1.  Container Tags		:-  these are having begining and ending tagnames as follows
+					<tagname  attribues ....> Action </tagname>
+
+					<>  Action </>
+2.  Non-Container Tags		:-  these are having only begining tag
+						<tagname attribues  />
+							
+						< />
+Software requirements :-  
+		To work with HTML, CSS and JS, we don't any specific software, just need Web Browser to execute. 
+		
+		To write a code, just need any text editor like "notepad". But now a days there are so many third 		party tools to write html, css and js code. From that we use "VSCode" software. 
+
+
+Structure of HTML:- 
+
+<html>
+	<head>
+		<title>title of the page</title>
+		...........
+	</head>
+
+	<body>
+		<Actual html program/>
+	</body>
+</html>
+
+Writing Steps :- 
+
+1.  Open any text editor(VSCode)
+2.  Create new file and save that file with .html extension
+3.  Code the program as per the required as save the file.
+4.  Open Browser then execute html program.
+
+Note :-  First Create a folder to store all html programs. 
+----------------------------
+Some Simple Tags:- 
+----------------------------
+heading tags are 6 levels  : h1, h2, .... h6
+
+<b>Bold</b>
+<u>Under Line</u>
+<i>Italic</i>
+<p>Para graph</p>
+
+<br />  =  break the line
+<hr /> = Horizantal Line
+
+<sup>Super Script</sup>
+<sub>Sub Script </sub>
+
+<img  src="filename with path"  width="%age/pixels"  height= "%age/pixels"  alt="Alternative Text" />
+		It will load an image on browser.
+
+------------------------------
+List Tags :-  These tags are used to present any text in point by point. 
+
+there are 3 types tags
+
+Ordered List :-  here points are 1/a/A/I/i
+
+	<ol  type="1/a/A/I/i">
+		<li>Point-1</li>
+		<li>Point-2</li>
+		..........
+	</ol>
+
+Unordered List :-  here points are symbols (circle/square/dot)
+
+	<ul  type="circle/square/dot">
+		<li>Point-1</li>
+		<li>Point-2</li>
+		..........
+	</ul>
+
+Definition List :-  here heading and it's definition will be defined
+
+		<dl>
+			<dt>Heading</dt>   dt => data term
+			<dd>definition</dd>  dd => data definition
+		</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			

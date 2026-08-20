@@ -1,0 +1,71 @@
+The HTML <label> tag provides a text caption for form controls like input fields, checkboxes, and dropdown menus.
+
+HTML Forms :- 
+-------------
+These tags are used to provide input to the web pages.
+
+Tools :-   textbox, passwordbox, buttons, radiobuttons, checkboxes, dropdownlist, ......
+
+input tag :-  This tag is used to create different tools.
+
+<input type="text/button/radiobutton/........"  name/id="name of tool"  value="val..."  ....... />
+
+textbox :-  single line text inputing
+
+<input type="text"  name/id="name of tool"  value="val..."  ....... />
+
+passwordbox :-  single line of text with invisiable chars
+
+<input type="password"  name/id="name of tool"  value="val..."  ....... />
+
+buttons :-  these are used to perform a task. these are 3 types
+
+button :-  used to execute script code
+submit :-  used to submit the form to server
+reset  :-  used to re-load the page
+
+<input type="button/submit/reset"  value="visiable text" ...... />
+
+radiobutton:-  it is used to select anyone option from group of options. 
+
+<input type="radio"  name="name of tool"   value="val" /><label>Visiable text</label>
+
+note :-  for one group of radio buttons should have single group name.
+
+checkbox :-  it is used to select multiple options from group of options. 
+
+<input type="checkbox"  name/id="name of tool"  value="val.." /> <label>Visiable Text</label>
+
+dropdownlist :-  it allows to select any one option/multiple options from group options
+		
+		<select  name/id="name of tool">
+			<option value="val">Visiable Text</option>
+			<option value="val">Visiable Text</option>
+			......................
+		</select>
+email box :-  <input type="email"  name/id="name of tool" .... />
+
+number box :-  <input type="number"  name/id="name of tool" .... min="start val"  max="end val" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

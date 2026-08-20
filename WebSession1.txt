@@ -1,0 +1,54 @@
+Today's Agenda
+--------------
+1. HTML
+--------------
+
+Web Programming is classified into two types
+
+1.  Client Side :- this kind of programming executes on client browser machine. 
+				Script Language
+2.  Server Side :- this kind of programming executes on server machines and result will be sent to client. 
+				
+Web App Development :- 
+
+A. Markup Languages :-  HTML, DHTML, XML, XHTML, ....
+B. Scripting Languages :- JavaScript, TypeScript, ECMA Script, ....
+C. Web Server Programming :- Java - Servlets, JSP;  Dotnet -  Asp.Net
+				Python - Django,  Script Based -  Node JS and Express JS
+
+Java Developer:- 
+A. Markup Languages :-  HTML, DHTML(CSS), XML, XHTML, ....
+B. Scripting Languages :- JavaScript, TypeScript(angular), ECMA Script, ....
+C. Web Server Programming :- Java - Servlets, JSP;
+
+DotNet Developer:- 
+A. Markup Languages :-  HTML, DHTML(CSS), XML, ....
+B. Scripting Languages :- JavaScript, TypeScript(angular), ECMA Script, ....
+C. Web Server Programming :- Dotnet -  Asp.Net
+
+Python Developer:- 
+A. Markup Languages :-  HTML, DHTML(CSS), XML,  ....
+B. Scripting Languages :- JavaScript, TypeScript(angular), ECMA Script, ....
+C. Web Server Programming :-Python - Django
+
+Script Based Developer:- 
+A. Markup Languages :-  HTML, DHTML(CSS), XML, ....
+B. Scripting Languages :- JavaScript, TypeScript(angular), ECMA Script, ....
+C. Web Server Programming :- Script Based -  Node JS and Express JS
+
+---------------------------------------
+NetWork :-  An inter-connection b/w two / more than two computers to share the information. 
+
+3 types of networks 
+
+1. Local Area Network (LAN) :- here computers are connected with cables. It will be done within the building for 				offices.
+
+2. Metro Politon Area Network (MAN) :- here computers are connected within city to city. here network will be establised using Satilites. 		
+				Ex:-  TV Channels
+
+3. Wide Area Network(WAN) :-  here computers are connected one location to another location in the entire world. 
+				Ex:-  Internet
+
+What is a Web / Internet?
+		It is a global network. / Networks of Network
+-----------------------------------------
