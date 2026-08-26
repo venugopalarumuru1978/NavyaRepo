@@ -1,0 +1,29 @@
+What is a CSS?
+		Cascading Style Sheets
+
+Purpose of CSS is to apply styles for html tags for beautification. 
+
+CSS can be used in 3 ways
+
+1.  Inline CSS
+	These CSS are applied on every tag as follows
+		<tagname  style="propname:value;propname:value;....">
+
+2.  Page Level CSS
+	these  css are applied in the entire web page.  it can be done in 3 ways
+	a.  Create css props for every tag as follows in <style> tag
+
+		tagname{
+			propname:value;
+		}
+
+	b.  html allows to create user defined css classes as follows
+		.css_classname{
+			propname:value;
+		}
+
+		to use that css classes, for every tag, "class" attribute has to be used.
+				<tagname   class="css_classname"  .... />
+3.  Site Level CSS
+
+
