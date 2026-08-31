@@ -1,0 +1,57 @@
+body{
+    background-color: cornflowerblue;
+    margin: 30px;
+}
+
+h1, h2, h3, h4, h5, h6{
+    text-align: center;
+    color: darkred;
+    background-color: yellow;
+    border-radius: 20px;
+}
+
+p{
+    text-align: justify;
+    color:bisque;
+    background-color: darkblue;
+    padding:20px;
+    border: solid;
+    border-color: darkorange;
+    border-radius: 20px;
+}
+
+table{
+    background-color: bisque;
+    width:100%;
+    border: solid;
+    border-color: red;
+    border-radius: 10px;
+}
+td, th{
+    border: solid;
+    border-color:blue;
+    border-radius: 10px;
+}
+td{
+    padding-left: 20px;
+}
+tr{
+    color: brown;
+}
+
+.head1{
+    text-align: center;
+    color:yellow;
+    background-color:darkmagenta;
+    border-radius: 10px;
+}
+
+.para1{
+    text-align: justify;
+    color:yellowgreen;
+    background-color:darkred;
+    padding:10px;
+    border: double;
+    border-color: darkorange;
+    border-radius: 20px;
+}
