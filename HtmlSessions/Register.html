@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body{
+            background-color: cadetblue;
+            margin: 10px;
+        }
+        h1,h2,h3,h4,h5,h6{
+            text-align: center;
+            color:whitesmoke;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        label{
+            font-weight: bold;
+            font-size:medium;
+        }
+
+        .flex-container {
+            display: flex;       /* Activates flexbox alignment */
+            gap: 10px;          /* Adds spacing between your side-by-side containers */
+        }
+
+        .box {
+        flex: 1;            /* Forces them to grow and share the width equally */
+        padding: 20px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        }
+
+        .textbox{
+            width:100%;
+            height: 30px;
+            font-weight: bold;
+            color:green;
+            border-radius: 10px;
+        }
+
+        .course_box{
+            width: 100%;
+            height: 50px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .btnReg{
+            width:150px;
+            height: 40px;
+            background-color: green;
+            color:greenyellow;
+            font-weight: bold;
+        }
+
+        .btnReset{
+            width:150px;
+            height: 40px;
+            background-color: red;
+            color:greenyellow;
+            font-weight: bold;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Register Page</h1>
+    <hr />
+    <div  class="flex-container">
+        <div class="box">
+            <label>Student Name</label><br />
+            <input type="text"  name="txtSname" placeholder="Student Name" class="textbox" />
+        </div>
+
+        <div class="box">
+            <label>Gender</label> <br />
+            <input type="radio"  name="rdoGender"  value="Male" />
+            <label>Male</label>
+
+            <input type="radio"  name="rdoGender"  value="Female" />
+            <label>Female</label>
+        </div>
+
+        <div class="box">
+            <label>Hobbies</label> <br />
+                       
+            <input type="checkbox"  name="chkHb1"  value="reading" />
+            <label>Reading Books</label>
+            
+            <input type="checkbox"  name="chkHb2"  value="chess" />
+            <label>Playing Chess</label>
+            
+            <input type="checkbox"  name="chkHb3"  value="garden" />
+            <label>Gardening</label>
+        </div>
+    </div>
+    <br />
+    <div class="flex-container">
+        <div class="box">
+            <label>Birth Date</label> <br />
+            <input type="date"  name="txtBdate" class="textbox" />
+        </div>
+
+        <div class="box">
+            <label>Age of Student</label> <br />
+            <input type="number"  name="txtAge"  min="20"  max="30" class="textbox" />
+        </div>
+
+        <div class="box">
+            <label>Courses</label> <br />
+            <select  name="ddlCourse" class="course_box" multiple >
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JavaScript">JavaScript</option>
+            </select>
+        </div>
+    </div>
+     <br />
+    <div class="flex-container">
+        <div class="box">
+            <label>Address</label><br />
+            <textarea name="txtAdrs"  rows="5" style="width: 100%;border-radius: 10px;"></textarea>
+        </div>
+    </div>
+<br />
+<div class="flex-container">
+    <div class="box">
+        <label>Location</label> <br />
+        <select  name="ddlLoc" class="textbox">
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Amaravathi">Amaravathi</option>
+        </select>
+    </div>
+    <div class="box">
+        <label>Phone Number</label> <br />
+        <input type="tel"  name="txtPhone"  class="textbox"  placeholder="+91-9000000001" />
+    </div>
+    <div class="box">
+        <label>Student Email</label><br />
+        <input type="email"  name="txtEmail" class="textbox"/>
+    </div>
+</div>
+
+<br />
+<div class="flex-container">
+    <div style="text-align: center; width: 100%;">
+        <input type="button"  value="Register" class="btnReg" />
+        &nbsp;&nbsp;&nbsp;
+        <input type="button"  value="Reset" class="btnReset" />
+    </div>
+</div>
+</body>
+</html>
