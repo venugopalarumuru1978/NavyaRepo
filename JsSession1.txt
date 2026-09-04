@@ -1,0 +1,68 @@
+java script
+------------
+What is a Script?
+	Programming with Web Page. 
+
+What is a purpose of the Script?
+	1. Input Validations
+	2. Dynamic Page Creation/Content
+	3. Data Manipulation
+
+What is a java script?
+	It is a loosely typed script language which is called as browser indepedent script language. 
+	Since it is loosely typed, there is no data type keywords to declare variables. 
+	Based on value assigned to the variable, data type will be identified. 
+
+	As per that case, there are 4 data types
+
+	number :-  for integer and decimal(float)
+	string :-  for text data type
+	boolean :- for true / false only
+	any     :- for any type value stored
+
+	As per JavaScript, following keywords are used to declare variables
+
+	let/var  <variable> = <value>;
+
+	let  x = 100;   // number
+	let  y = 12.56; // number
+	let  str = "JavaScript";   // String
+	let ch = true; // boolean
+--------------
+To work with JavaScript, install  nodejs software 
+--------------
+console.log():-  this method is used to print something on browser console/command console. 
+		console.log("stmt"/variable)
+-------------
+To write JS code
+
+	1. Open VSCode
+	2. Code the js program
+	3. Save the program with .js extension
+	4. Open Terminal from vs code
+	5. To execute program, use following command at terminal
+		node  filename.js
+----------------------------
+To write JS in html page
+	Add following tag into <body> ending point. 
+	
+	<script  type="text/javascript">
+		// js code here
+	</script>
+----------------------
+document:-  It is a pre-defined object of js which is meant for Currently working html page. 
+		it has lots of predefined methods. 
+	
+writeln() :-  this method is used to print something on browser. 
+
+		document.writeln("stmt"/variable)
+
+
+
+
+
+
+
+
+
+
