@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <h1 style="text-align: center;">Text Box Demo</h1>
+    <form  name="frmTest">
+        <p style="text-align: center;">
+            <input type="text"  name="txtPname" placeholder="Enter ur name" />
+            <br /><br />
+            <input type="button"  value="Click Me" onclick="DemoInput()" />
+        </p>
+    </form>
+
+    <h2 style="text-align: center;"  id="res"></h2>
+
+    <script type="text/javascript">
+        function DemoInput()
+        {
+            let pname = frmTest.txtPname.value;
+            //document.getElementById("res").innerText = "<u>Hello, " + pname + "</u>";
+            document.getElementById("res").innerHTML = "<u>Hello, " + pname + "</u>";
+        }
+    </script>
+</body>
+</html>
