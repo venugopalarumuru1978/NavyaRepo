@@ -52,19 +52,38 @@
 <body style="background-color: cornflowerblue;">
     <h2 style="text-align: center;">Login Page</h2>
     <hr />
+    <form name="frmLogin"  method="post" action="Welcome.html" onsubmit="return UserCheck()">
         <div class="box">
                 <label>Username</label><br />
-                <input type="text"  name="txtUname" class="textbox" />
+                <input type="text"  name="txtUname" class="textbox" required />
 
                         <br />
                 <label>Password</label> <br />
-                <input type="password"  name="txtPwd" class="textbox" />
+                <input type="password"  name="txtPwd" class="textbox" required />
                         
                     <br /><br />
                 <div style="text-align: center;width: 100%;">
-                    <input type="button"  value="Login here" class="btnLogin" />
-                    <input type="button"  value="Clear Form" class="btnReset" />                                                             
+                    <input type="submit"  value="Login here" class="btnLogin"  />
+                    <input type="reset"  value="Clear Form" class="btnReset" />                                                             
                 </div>
         </div>
+    </form>
+        <h2 style="text-align: center;color:red" id="info">        
+        </h2>
+
+        <script type="text/javascript">
+            function UserCheck()
+            {
+                let uname = frmLogin.txtUname.value;
+                let pwd = frmLogin.txtPwd.value;
+                if(uname==="Venugopal"  && pwd==="v@123")
+                    return true;
+                else
+                    {
+                        document.getElementById("info").innerHTML = "Please check username / password";
+                        return false;
+                    }
+            }
+        </script>
 </body>
 </html>
