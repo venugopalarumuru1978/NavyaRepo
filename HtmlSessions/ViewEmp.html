@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body onload="GetData()">
+    
+    <h1 style="text-align: center;">
+        Employee Information
+    </h1>
+
+    <table width="100%" border="1" id="emp_table">
+        <tr>
+            <th>Emp ID</th>
+            <th>Emp Name</th>
+            <th>Emp Job</th>
+            <th>Emp Salary</th>
+        </tr>
+
+    </table>
+
+    <script type="text/javascript">
+        function GetData()
+        {
+            fetch('http://localhost:3000/Employee')
+                .then(response => response.json())
+                .then((data) => {
+                    console.log(data)
+                    ShowData(data);
+                })
+                .catch((error) =>{
+                 console.error('Error:', error)
+                });
+        }
+
+        function ShowData(empdata)
+        {
+            const tableRow = document.getElementById("emp_table");
+
+            for(let i=0;i<empdata.length;i++)
+            {
+                const newRow = tableRow.insertRow(-1);
+
+                const cell1 = newRow.insertCell(0);
+                const cell2 = newRow.insertCell(1);
+                const cell3 = newRow.insertCell(2);
+                const cell4 = newRow.insertCell(3);
+
+                cell1.textContent = empdata[i].id;
+                cell2.textContent = empdata[i].ename;
+                cell3.textContent = empdata[i].job;
+                cell4.textContent = empdata[i].sal;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+</head>
+<body>
+    <h1 style="text-align: center;">Add New Employee</h1>
+    <hr />
+    <form name="frmEmp"  method="post">
+        <p style="text-align: center;">
+            <input type="text"  name="txtID"  placeholder="Employee ID" />
+            <br /><br />
+            <input type="text"  name="txtEname"  placeholder="Employee Name" />
+            <br /><br />
+            <input type="text"  name="txtJob"  placeholder="Employee Job" />
+            <br /><br />
+            <input type="text"  name="txtSal"  placeholder="Employee Salary" />
+            <br /><br />
+            <input type="button"  value="Add Employee" onclick="AddNewEmp()" />
+        </p>
+    </form>
+    <div style="text-align: center;color: green;" id="info"></div>
+
+    <script  type="text/javascript">
+        function AddNewEmp()
+        {
+            let id = frmEmp.txtID.value;
+            let ename = frmEmp.txtEname.value;
+            let job = frmEmp.txtJob.value;
+            let sal = frmEmp.txtSal.value;
+
+            let  empjsondata = {"id":id, "ename":ename, "job":job, "sal":sal};
+            
+            fetch('http://localhost:3000/Employee',{
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(empjsondata)
+            })
+            .then(response => response.json())
+            .then((result) =>{ 
+                console.log(result);
+                document.getElementById("info").innerHTML = "Employee Added";
+            })
+            .catch((err)=>{
+                console.log(err);
+            });
+        }
+    </script>
+</body>
+</html>

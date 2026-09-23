@@ -1,4 +1,4 @@
-// json object
+// json single object
 stdinfo = {"rollno":1001, "sname":"Pavan", "course":"Python", "fees":15000.00};
 console.log(stdinfo);
 

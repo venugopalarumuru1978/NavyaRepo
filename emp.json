@@ -1,22 +1,35 @@
 {
-"Employee":[
-{
-"id":101,
-"ename":"Pavan",
-"job":"Manager",
-"sal":10000
-},
-{
-"id":102,
-"ename":"Jagan",
-"job":"Tester",
-"sal":9000
-},
-{
-"id":103,
-"ename":"Jagadeesh",
-"job":"Tester",
-"sal":9000
-}
-]
+  "Employee": [
+    {
+      "id": "101",
+      "ename": "Pavan",
+      "job": "Manager",
+      "sal": 10000
+    },
+    {
+      "id": "102",
+      "ename": "Jagan",
+      "job": "Tester",
+      "sal": 9000
+    },
+    {
+      "id": "103",
+      "ename": "Jagadeesh",
+      "job": "Tester",
+      "sal": 9000
+    },
+    {
+      "id": "SFLoEFuW0gQ",
+      "ename": "Priya",
+      "job": "Tester",
+      "sal": "2000"
+    },
+    {
+      "id": "gEUbhmBWWqw",
+      "ename": "Preethi",
+      "job": "Developer",
+      "sal": "25000"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
