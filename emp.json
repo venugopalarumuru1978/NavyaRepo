@@ -29,6 +29,12 @@
       "ename": "Preethi",
       "job": "Developer",
       "sal": "25000"
+    },
+    {
+      "id": "TmZoSl475KM",
+      "ename": "Baskar ",
+      "job": "Tester",
+      "sal": "10000.00"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

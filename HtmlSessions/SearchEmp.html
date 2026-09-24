@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body >
+    
+    <h1 style="text-align: center;">
+        Search Employee Information
+    </h1>
+    <hr />
+    <div style="text-align: center;width: 100%;">
+        <h3>
+            <a href="AddEmp.html">New Employee</a> 
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="ViewEmp.html">All Employees</a> 
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="SearchEmp.html">Search Employee</a> 
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+        </h3>
+    </div>
+    <hr />
+    <form name="frmSearch"  method="post">
+        <p style="text-align: center;">
+            <label>Employee ID</label>
+            <input type="text"  name="txtEid"  placeholder="Employee ID" />
+            <input type="button"  value="Search Emp" onclick="SearchEmp()" />
+        </p>
+    </form>
+    <br />
+
+    <table width="100%" border="1" id="emp_table">
+    </table>
+
+    <script type="text/javascript">
+        function SearchEmp()
+        {
+            let eid = frmSearch.txtEid.value;
+            fetch('http://localhost:3000/Employee/' + eid)
+                .then(response => response.json())
+                .then((data) => {
+                    console.log(data);
+                    if(data.error==="Not Found")
+                        document.getElementById("emp_table").innerHTML = "Employee Not Found";
+                    else
+                        ShowData(data);
+                })
+                .catch((error) =>{
+                 console.error('Error:', error)
+                });
+        }
+
+        function ShowData(empdata)
+        {
+            let headrow = "<tr><th>Emp ID</th><th>Emp Name</th><th>Emp Job</th><th>Emp Salary</th></tr>";
+
+            const tableRow = document.getElementById("emp_table");
+            
+            tableRow.innerHTML = headrow;
+
+            const newRow = tableRow.insertRow(-1);
+
+            const cell1 = newRow.insertCell(0);
+            const cell2 = newRow.insertCell(1);
+            const cell3 = newRow.insertCell(2);
+            const cell4 = newRow.insertCell(3);
+
+            cell1.textContent = empdata.id;
+            cell2.textContent = empdata.ename;
+            cell3.textContent = empdata.job;
+            cell4.textContent = empdata.sal;
+        }
+
+    </script>
+</body>
+</html>

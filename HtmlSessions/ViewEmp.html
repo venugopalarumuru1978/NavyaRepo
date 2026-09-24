@@ -11,17 +11,32 @@
     <h1 style="text-align: center;">
         Employee Information
     </h1>
-
+<hr />
+<div style="text-align: center;width: 100%;">
+    <h3>
+        <a href="AddEmp.html">New Employee</a> 
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="ViewEmp.html">All Employees</a> 
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="SearchEmp.html">Search Employee</a> 
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+    </h3>
+</div>
+<hr />
     <table width="100%" border="1" id="emp_table">
         <tr>
             <th>Emp ID</th>
             <th>Emp Name</th>
             <th>Emp Job</th>
             <th>Emp Salary</th>
+            <th>Operations</th>
         </tr>
-
     </table>
 
+    <br />
+    <div style="text-align: center;width: 100%;" id="info">
+    </div>
+    
     <script type="text/javascript">
         function GetData()
         {
@@ -48,11 +63,30 @@
                 const cell2 = newRow.insertCell(1);
                 const cell3 = newRow.insertCell(2);
                 const cell4 = newRow.insertCell(3);
+                const cell5 = newRow.insertCell(4);
 
                 cell1.textContent = empdata[i].id;
                 cell2.textContent = empdata[i].ename;
                 cell3.textContent = empdata[i].job;
-                cell4.textContent = empdata[i].sal;
+                cell4.textContent = empdata[i].sal;                
+                cell5.innerHTML = "<input type='button' value='Delete' onclick='DelEmployee(" + empdata[i].id + ")' />";
+            }
+
+            function DelEmployee(eid)
+            {
+                console.log(eid);
+                fetch('http://localhost:3000/Employee/' + eid,{
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },                    
+                })
+                .then(response => response.json())
+                .then((result) =>{ 
+                    console.log(result);
+                    document.getElementById("info").innerHTML = "Employee Deleted, refresh page";
+                })
+                .catch((err)=>{
+                    console.log(err);
+                });
             }
         }
     </script>
