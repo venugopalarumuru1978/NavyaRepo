@@ -24,17 +24,10 @@
 </div>
 <hr />
     <table width="100%" border="1" id="emp_table">
-        <tr>
-            <th>Emp ID</th>
-            <th>Emp Name</th>
-            <th>Emp Job</th>
-            <th>Emp Salary</th>
-            <th>Operations</th>
-        </tr>
     </table>
 
     <br />
-    <div style="text-align: center;width: 100%;" id="info">
+    <div style="text-align: center;width: 100%;" id="edit_info">
     </div>
     
     <script type="text/javascript">
@@ -50,7 +43,7 @@
                  console.error('Error:', error)
                 });
         }
-
+/*
         function ShowData(empdata)
         {
             const tableRow = document.getElementById("emp_table");
@@ -69,8 +62,30 @@
                 cell2.textContent = empdata[i].ename;
                 cell3.textContent = empdata[i].job;
                 cell4.textContent = empdata[i].sal;                
-                cell5.innerHTML = "<input type='button' value='Delete' onclick='DelEmployee(" + empdata[i].id + ")' />";
+                //cell5.innerHTML = "<input type='button' value='Delete' onclick='DelEmployee(${empdata[i].id})' />";
+                cell5.innerHTML = `<button onclick="DelEmployee('${empdata[i].id}')">Delete</button>`;
             }
+*/
+
+        function ShowData(empdata)
+        {
+            //console.log(empdata);
+            let rows = "<tr><th>Emp ID</th><th>Emp Name</th><th>Emp Job</th><th>Emp Salary</th><th>Operations</th></tr>";
+
+            for(let i=0;i<empdata.length;i++)
+            {
+                rows = rows + "<tr>";
+                rows  = rows + "<td>" + empdata[i].id + "</td>";
+                rows  = rows + "<td>" + empdata[i].ename + "</td>";
+                rows  = rows + "<td>" + empdata[i].job + "</td>";
+                rows  = rows + "<td>" + empdata[i].sal + "</td>";
+                rows  = rows + "<td><input type='button' value='Delete' onclick='DelEmployee(" + empdata[i].id + ")' />";
+                rows  = rows + "&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<input type='button' value='Modify' onclick='ModEmployee(" + empdata[i].id + ")' /></td>";
+                rows = rows + "</tr>";
+            }
+            
+            document.getElementById("emp_table").innerHTML = rows;
+        }
 
             function DelEmployee(eid)
             {
@@ -81,14 +96,68 @@
                 })
                 .then(response => response.json())
                 .then((result) =>{ 
-                    console.log(result);
-                    document.getElementById("info").innerHTML = "Employee Deleted, refresh page";
+                    //console.log(result);
+                    //document.getElementById("info").innerHTML = "Employee Deleted, refresh page";
+                    GetData();
                 })
                 .catch((err)=>{
                     console.log(err);
                 });
             }
-        }
+
+            function ModEmployee(eid)
+            {
+                fetch('http://localhost:3000/Employee/' + eid)
+                .then(response => response.json())
+                .then((data) => {
+                    console.log(data);
+                    ShowModData(data);
+                })
+                .catch((error) =>{
+                 console.error('Error:', error)
+                });
+
+            }
+
+            function ShowModData(data)
+            {
+                    let mod_form =   "<form name='frmEmp'  method='post' action='ViewEmp.html'>";
+                    mod_form = mod_form + "<p style='text-align: center;'>";
+                    mod_form = mod_form +"<input type='text'  name='txtID' value='" + data.id + "' /><br /><br />";                    
+                    mod_form = mod_form + "<input type='text'  name='txtEname' value='" + data.ename + "' /><br /><br />"                
+                    mod_form = mod_form + "<input type='text'  name='txtJob' value='" + data.job + "'  /> <br /><br />"
+                    mod_form = mod_form + "<input type='text'  name='txtSal' value='" + data.sal + "'  /> <br /><br />"
+                    mod_form = mod_form + "<input type='submit'  value='Modify Employee' onclick='ModifyEmpInfo()' />"
+                    mod_form = mod_form + "</p></form>"
+                    document.getElementById("edit_info").innerHTML = mod_form;
+            }
+    
+            function ModifyEmpInfo()
+            {
+                let id = frmEmp.txtID.value;
+                let ename = frmEmp.txtEname.value;
+                let job = frmEmp.txtJob.value;
+                let sal = frmEmp.txtSal.value;
+
+                let  empjsondata = {"id":id, "ename":ename, "job":job, "sal":sal};
+            
+            fetch('http://localhost:3000/Employee/' + id,{
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(empjsondata)
+            })
+            .then(response => response.json())
+            .then((result) =>{ 
+                console.log(result);
+                //document.getElementById("info").innerHTML = "Employee Added";
+                //alert("Emp Modified");
+            })
+            .catch((err)=>{
+                console.log(err);
+            });
+
+            }
+    
     </script>
 </body>
 </html>

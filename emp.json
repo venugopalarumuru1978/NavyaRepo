@@ -2,33 +2,15 @@
   "Employee": [
     {
       "id": "101",
-      "ename": "Pavan",
+      "ename": "Pavan Rao",
       "job": "Manager",
-      "sal": 10000
+      "sal": "25000.00"
     },
     {
-      "id": "102",
-      "ename": "Jagan",
-      "job": "Tester",
-      "sal": 9000
-    },
-    {
-      "id": "103",
-      "ename": "Jagadeesh",
-      "job": "Tester",
-      "sal": 9000
-    },
-    {
-      "id": "SFLoEFuW0gQ",
-      "ename": "Priya",
-      "job": "Tester",
-      "sal": "2000"
-    },
-    {
-      "id": "gEUbhmBWWqw",
-      "ename": "Preethi",
-      "job": "Developer",
-      "sal": "25000"
+      "id": "567",
+      "ename": "Preethi Reddy",
+      "job": "Sr. Developer",
+      "sal": "50000"
     },
     {
       "id": "TmZoSl475KM",

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Fetch + JSON-Server CRUD</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        form { margin-bottom: 20px; padding: 15px; border: 1px solid #ccc; max-width: 400px; }
+        input { display: block; margin: 10px 0; padding: 8px; width: 95%; }
+        button { padding: 8px 12px; cursor: pointer; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        .btn-delete { background-color: #ff4d4d; color: white; border: none; }
+        .btn-edit { background-color: #ffaa00; color: white; border: none; margin-right: 5px; }
+    </style>
+</head>
+<body>
+
+    <h2>Product Management (CRUD)</h2>
+
+    <!-- Form for Creating & Updating -->
+    <form id="productForm">
+        <input type="hidden" id="productId">
+        <label for="name">Product Name:</label>
+        <input type="text" id="name" required>
+        <label for="price">Price (\$):</label>
+        <input type="number" id="price" required>
+        <button type="submit" id="submitBtn">Add Product</button>
+        <button type="button" id="cancelBtn" style="display:none;" onclick="resetForm()">Cancel Edit</button>
+    </form>
+
+    <!-- Table to Display Items -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="productTableBody">
+            <!-- Dynamic content injected here -->
+        </tbody>
+    </table>
+
+    <script>
+        const API_URL = 'http://localhost:3000/products';
+        const productForm = document.getElementById('productForm');
+        const productTableBody = document.getElementById('productTableBody');
+        const submitBtn = document.getElementById('submitBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+
+        // Load data on window load
+        document.addEventListener('DOMContentLoaded', fetchProducts);
+
+        // --- 1. READ Operation (GET Request) ---
+        async function fetchProducts() {
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error('Failed to fetch data');
+                const products = await response.json();
+                renderTable(products);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        }
+
+        function renderTable(products) {
+            productTableBody.innerHTML = '';
+            products.forEach(product => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${product.id}</td>
+                    <td>${product.name}</td>
+                    <td>$${product.price}</td>
+                    <td>
+                        <button class="btn-edit" onclick="setupEdit('${product.id}', '${product.name}', ${product.price})">Edit</button>
+                        <button class="btn-delete" onclick="deleteProduct('${product.id}')">Delete</button>
+                    </td>
+                `;
+                productTableBody.appendChild(row);
+            });
+        }
+
+        // --- Form Submission: Handles both CREATE & UPDATE ---
+        productForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const id = document.getElementById('productId').value;
+            const name = document.getElementById('name').value;
+            const price = parseFloat(document.getElementById('price').value);
+            const productData = { name, price };
+
+            if (id) {
+                // If ID exists, execute UPDATE
+                await updateProduct(id, productData);
+            } else {
+                // If no ID exists, execute CREATE
+                await createProduct(productData);
+            }
+
+            resetForm();
+            fetchProducts(); // Refresh UI
+        });
+
+        // --- 2. CREATE Operation (POST Request) ---
+        async function createProduct(data) {
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (!response.ok) throw new Error('Failed to create product');
+            } catch (error) {
+                console.error('Error creating product:', error);
+            }
+        }
+
+        // --- 3. UPDATE Operation (PUT Request) ---
+        async function updateProduct(id, data) {
+            try {
+                const response = await fetch(`${API_URL}/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (!response.ok) throw new Error('Failed to update product');
+            } catch (error) {
+                console.error('Error updating product:', error);
+            }
+        }
+
+        // --- 4. DELETE Operation (DELETE Request) ---
+        async function deleteProduct(id) {
+            if (!confirm('Are you sure you want to delete this product?')) return;
+            
+            try {
+                const response = await fetch(`${API_URL}/${id}`, {
+                    method: 'DELETE'
+                });
+                if (!response.ok) throw new Error('Failed to delete product');
+                fetchProducts(); // Refresh UI
+            } catch (error) {
+                console.error('Error deleting product:', error);
+            }
+        }
+
+        // --- UI Helper Functions ---
+        function setupEdit(id, name, price) {
+            document.getElementById('productId').value = id;
+            document.getElementById('name').value = name;
+            document.getElementById('price').value = price;
+            
+            submitBtn.textContent = 'Update Product';
+            cancelBtn.style.display = 'inline-block';
+        }
+
+        function resetForm() {
+            productForm.reset();
+            document.getElementById('productId').value = '';
+            submitBtn.textContent = 'Add Product';
+            cancelBtn.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
