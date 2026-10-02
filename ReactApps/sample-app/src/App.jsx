@@ -5,6 +5,7 @@ import viteLogo from './assets/vite.svg'
 import './App.css'
 import Home from './Home'
 import Contact from './Contact'
+import About from './About'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,6 +16,8 @@ function App() {
         <Home />
         <hr />
         <Contact />
+        <hr />
+        <About />
     </>
   )
 }
