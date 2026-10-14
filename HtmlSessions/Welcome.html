@@ -3,13 +3,37 @@
         <title>Demo Page</title>
     </head>
 
-    <body style="background-color: cornflowerblue;">
+    <body style="background-color: cornflowerblue;" onload="getUser()">
 
-        <h1 style="text-align: center;">
-            Welcome to Admin
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <a href="Form1.html">Logout</a>
-        </h1>
+        <table width="100%">
+            <tr>
+                <td>
+                    <h1 style="text-align: center;" id="uinfo">                        
+                    </h1>            
+                </td>
+                <td>
+                    <h1><a href="Form1.html">Logout</a></h1>
+                </td>
+            </tr>
+        </table>
         <hr />
     </body>
+
+    <script type="text/javascript">
+
+        function getUser()
+        {
+            if(sessionStorage.getItem("user")!=null)
+            {
+                let username = sessionStorage.getItem("user");
+                let res = "Welcome to : " + username;
+                document.getElementById("uinfo").innerHTML = res;
+            }
+            else
+            {
+                window.location.replace("Form1.html"); //login page
+            }
+        }
+
+    </script>
 </html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <h1 style="text-align: center;">Local Storage</h1>
+<form name="frmTest">
+    <div style="text-align: center;">
+        <input type="text"  name="txtName" />
+        <br /><br />
+        <input type="button"  value="Add Data"  onclick="Add()" />
+        &nbsp;&nbsp;&nbsp;
+        <input type="button"  value="View Data" onclick="ViewData()" />
+        &nbsp;&nbsp;&nbsp;
+        <input type="button"  value="Del Data" onclick="DelData()" />
+    </div>    
+</form>
+<h1 style="text-align: center;" id="res"></h1>
+
+<script type="text/javascript">
+
+    function Add()
+    {
+        let data = frmTest.txtName.value;
+        if(localStorage.getItem("testdata")!=null)
+        {
+           let info =  localStorage.getItem("testdata");
+           info = info + "<br />" + data;
+           localStorage.setItem("testdata", info);
+        }
+        else
+        {
+            localStorage.setItem("testdata", data);
+        }
+        document.getElementById("res").innerHTML = "Data Stored";
+    }
+
+    function  ViewData()
+    {
+        let info = localStorage.getItem("testdata");
+        document.getElementById("res").innerHTML = info;
+    }
+
+    function  DelData()
+    {
+        localStorage.removeItem("testdata");
+        document.getElementById("res").innerHTML = "Data Deleted";
+    }
+
+
+
+
+</script>
+</body>
+</html>
